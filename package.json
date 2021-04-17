@@ -1,0 +1,9 @@
+{
+  "name": "serverless-brave-clojure",
+  "description": "Deployment JavaScript dependencies for brave-clojure",
+  "version": "0.0.1",
+  "dependencies": {
+    "aws-sdk": "^2.751.0",
+    "serverless": "^1.83.0"
+  }
+}

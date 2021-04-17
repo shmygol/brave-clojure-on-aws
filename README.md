@@ -12,16 +12,3 @@ To build and deploy a stack
 lein uberjar
 npx sls deploy -v --stage dev
 ```
-
-## Testing
-
-You can test function locally:
-
-```
-lein run
-```
-
-You can give input (AWS events) via `stdin`.
-```
-lein run < event.json
-```

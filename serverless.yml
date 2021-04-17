@@ -1,0 +1,35 @@
+service: brave-clojure
+
+provider:
+  name: aws
+  runtime: java8
+  region: eu-central-1
+  stage: ${opt:stage, "dev"}
+  memorySize: 512
+  timeout: 300  # 5min
+
+package:
+  artifact: target/standalone.jar
+
+functions:
+  func1:
+    name: ${self:service}-func1-${self:provider.stage}
+    description: Test function
+    handler: brave_clojure.handler::func1
+
+  func2:
+    name: ${self:service}-func2-${self:provider.stage}
+    description: Test function
+    handler: brave_clojure.handler::func2
+
+resources:
+  Resources:
+    Func1LogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        RetentionInDays: "30"
+    Func2LogGroup:
+      Type: AWS::Logs::LogGroup
+      Properties:
+        RetentionInDays: "30"
+
