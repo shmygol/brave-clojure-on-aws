@@ -5,22 +5,18 @@ provider:
   runtime: java8
   region: eu-central-1
   stage: ${opt:stage, "dev"}
-  memorySize: 512
-  timeout: 300  # 5min
+  memorySize: 1024
+  timeout: 60  # 1min
 
 package:
   artifact: target/standalone.jar
 
 functions:
-  func1:
-    name: ${self:service}-func1-${self:provider.stage}
-    description: Test function
-    handler: brave_clojure.handler::func1
+  chapter3:
+    handler: brave_clojure.chapter3::handler
 
-  func2:
-    name: ${self:service}-func2-${self:provider.stage}
-    description: Test function
-    handler: brave_clojure.handler::func2
+  chapter4:
+    handler: brave_clojure.chapter4::handler
 
 resources:
   Resources:
