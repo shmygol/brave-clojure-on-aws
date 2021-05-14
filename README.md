@@ -27,6 +27,14 @@ Currently the uberjar contains handlers for all the lambda functions, which shal
 Every book chapter is a separated namespace and is deployed to a dedicated AWS lambda function e.g.,
 brave-clojure.chapter3 namespace for the 3rd chapter is deployed to an AWS lambda function named chapter3.
 
+### Linting
+
+Eastwood is used for linting. To run eastwood:
+```
+lein eastwood
+```
+
+
 ## Run locally
 
 Is on the roadmap

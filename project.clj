@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.10.0"]]
   :jvm-opts ["-Dclojure.compiler.elide-meta=[:doc]"
              "-Dclojure.compiler.direct-linking=true"]
+  :plugins [[jonase/eastwood "0.4.2"]]
   ;; :target-path "target/%s"
   :profiles {:uberjar {:aot :all,
                        :uberjar-name "standalone.jar"}})
