@@ -39,7 +39,7 @@
   event[\"arguments\"] - exercise arguments
   "
   [event]
-  (let [{:strs [exercise-number arguments]} event
+  (let [{:keys [exercise-number arguments]} event
         exercises [nil
                    exercise-1
                    exercise-2

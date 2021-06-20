@@ -34,11 +34,18 @@ Eastwood is used for linting. To run eastwood:
 lein eastwood
 ```
 
+### Testing
+
+The unit tests are written with clojure.test. To run the tests
+```
+lein test
+```
+
+To calculate the coverage:
+```
+lein cloverage
+```
 
 ## Run locally
-
-Is on the roadmap
-
-## Tests
 
 Is on the roadmap
