@@ -6,19 +6,19 @@
 (deftest exercise-1-test
   (testing "Returns foo"
     (is (= {:result "foo"}
-           (sut/-handler {:exercise-number 1 :exercise-arguments []})))))
+           (sut/-handler {:exercise-number 1 :arguments []})))))
 
 (deftest exercise-2-test
   (testing "Returns foo"
     (is (= {:result "foo"}
-           (sut/-handler {:exercise-number 2 :exercise-arguments []})))))
+           (sut/-handler {:exercise-number 2 :arguments []})))))
 
 (deftest exercise-3-test
   (testing "Returns foo"
     (is (= {:result "foo"}
-           (sut/-handler {:exercise-number 3 :exercise-arguments []})))))
+           (sut/-handler {:exercise-number 3 :arguments []})))))
 
 (deftest exercise-4-test
   (testing "Returns foo"
     (is (= {:result "foo"}
-           (sut/-handler {:exercise-number 4 :exercise-arguments []})))))
+           (sut/-handler {:exercise-number 4 :arguments []})))))
