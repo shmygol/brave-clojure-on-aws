@@ -4,29 +4,45 @@
     :methods [^:static [handler [java.util.Map] java.util.Map]]))
 
 (defn exercise-1
-  "1. Description for the exercise"
+  "1. Use the `str`, `vector`, `list`, `hash-map`, and `hash-set` functions."
   []
-  {:result "foo"})
+  {:str (str "Just " "a " "simple " "string.")
+   :vector (vector "a" "b" "c")
+   :list (list 1 "a" "b" 2 "a" :end)
+   :hash-map (hash-map :key "value")
+   :hash-set (hash-set "a" "a" "b" "c" "c" "c")})
 
 (defn exercise-2
-  "2. Description for the exercise"
-  []
-  {:result "foo"})
+  "2.  Write a function that takes a number and adds 100 to it."
+  [input-number]
+  (+ input-number 100))
 
 (defn exercise-3
-  "3. Description for the exercise"
-  []
-  {:result "foo"})
+  "3. Write a function, dec-maker,
+  that works exactly like the function inc-maker except with subtraction."
+  [decrementor]
+  #(- % decrementor))
 
 (defn exercise-4
-  "4. Description for the exercise"
-  []
-  {:result "foo"})
+  "4. Write a function, mapset,
+  that works like map except the return value is a set."
+  [& args]
+  (into #{} (apply map args)))
 
 (defn exercise-5
-  "5. Description for the exercise"
-  []
-  {:result "foo"})
+  "5.  Create a function that’s similar to `symmetrize-body-parts`
+  except that it has to work with weird space aliens with radial symmetry.
+  Instead of two eyes, arms, legs, and so on, they have five."
+  [asym-body-parts]
+  (loop [remaining-asym-parts asym-body-parts
+         final-body-parts []]
+    (if (empty? remaining-asym-parts)
+      final-body-parts
+      (let [[part & remaining] remaining-asym-parts]
+        (recur remaining
+               (into final-body-parts
+                     (set [part {:name (clojure.string/replace (:name part) #"^left-" "right-")
+                                 :size (:size part)}])))))))
 
 (defn exercise-6
   "6. Description for the exercise"
