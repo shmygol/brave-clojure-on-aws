@@ -1,5 +1,6 @@
 (ns brave-clojure.chapter3
   "Exercises from Chapter 3"
+  (:require clojure.set clojure.string)
   (:gen-class
     :methods [^:static [handler [java.util.Map] java.util.Map]]))
 
@@ -29,20 +30,29 @@
   [& args]
   (into #{} (apply map args)))
 
+(defn -replace-in-name
+  "Replace string in :name value of input-map"
+  [input-map match replacement]
+  (update input-map :name #(clojure.string/replace % match replacement)))
+
 (defn exercise-5
   "5.  Create a function that’s similar to `symmetrize-body-parts`
   except that it has to work with weird space aliens with radial symmetry.
   Instead of two eyes, arms, legs, and so on, they have five."
   [asym-body-parts]
   (loop [remaining-asym-parts asym-body-parts
-         final-body-parts []]
+         final-body-parts #{}]
     (if (empty? remaining-asym-parts)
       final-body-parts
       (let [[part & remaining] remaining-asym-parts]
         (recur remaining
-               (into final-body-parts
-                     (set [part {:name (clojure.string/replace (:name part) #"^left-" "right-")
-                                 :size (:size part)}])))))))
+               (clojure.set/union
+                 final-body-parts
+                 #{part}
+                 (set (map
+                   (partial -replace-in-name part #"^middle-")
+                   '("right-upper-" "right-lower-" "left-lower-" "left-upper-")))))))))
+                   ;; #{"top-" "right-upper-" "right-lower-" "left-lower-"})))))))
 
 (defn exercise-6
   "6. Description for the exercise"
