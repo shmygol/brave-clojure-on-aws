@@ -74,7 +74,7 @@
            (sut/-handler {:exercise-number 4 :arguments [inc [1 2]]})))))
 
 (deftest exercise-5-test
-  (testing "Returns foo"
+  (testing "Adds 4 additional body parts to every one starting with middle-"
     (let [input [{:name "head" :size 3}
                  {:name "middle-eye" :size 1}
                  {:name "middle-ear" :size 1}
@@ -164,6 +164,79 @@
       (is-no-diff expected (sut/-handler {:exercise-number 5 :arguments [input]})))))
 
 (deftest exercise-6-test
-  (testing "Returns foo"
-    (is (= {:result "foo"}
-           (sut/-handler {:exercise-number 6 :arguments []})))))
+  (testing "Adds a given number additional body parts to every one starting with 1-"
+    (let [arguments [3 [{:name "head" :size 3}
+                        {:name "1-eye" :size 1}
+                        {:name "1-ear" :size 1}
+                        {:name "mouth" :size 1}
+                        {:name "nose" :size 1}
+                        {:name "neck" :size 2}
+                        {:name "1-shoulder" :size 3}
+                        {:name "1-arm" :size 3}
+                        {:name "chest" :size 10}
+                        {:name "back" :size 10}
+                        {:name "1-forearm" :size 3}
+                        {:name "abdomen" :size 6}
+                        {:name "1-kidney" :size 1}
+                        {:name "1-hand" :size 2}
+                        {:name "1-knee" :size 2}
+                        {:name "1-thigh" :size 4}
+                        {:name "1-leg" :size 3}
+                        {:name "1-achilles" :size 3}
+                        {:name "1-foot" :size 2}]]
+          expected (hash-set {:name "head" :size 3}
+                             {:name "1-eye" :size 1}
+                             {:name "2-eye" :size 1}
+                             {:name "3-eye" :size 1}
+                             {:name "4-eye" :size 1}
+                             {:name "1-ear" :size 1}
+                             {:name "2-ear" :size 1}
+                             {:name "3-ear" :size 1}
+                             {:name "4-ear" :size 1}
+                             {:name "mouth" :size 1}
+                             {:name "nose" :size 1}
+                             {:name "neck" :size 2}
+                             {:name "1-shoulder" :size 3}
+                             {:name "2-shoulder" :size 3}
+                             {:name "3-shoulder" :size 3}
+                             {:name "4-shoulder" :size 3}
+                             {:name "1-arm" :size 3}
+                             {:name "2-arm" :size 3}
+                             {:name "3-arm" :size 3}
+                             {:name "4-arm" :size 3}
+                             {:name "chest" :size 10}
+                             {:name "back" :size 10}
+                             {:name "1-forearm" :size 3}
+                             {:name "2-forearm" :size 3}
+                             {:name "3-forearm" :size 3}
+                             {:name "4-forearm" :size 3}
+                             {:name "abdomen" :size 6}
+                             {:name "1-kidney" :size 1}
+                             {:name "2-kidney" :size 1}
+                             {:name "3-kidney" :size 1}
+                             {:name "4-kidney" :size 1}
+                             {:name "1-hand" :size 2}
+                             {:name "2-hand" :size 2}
+                             {:name "3-hand" :size 2}
+                             {:name "4-hand" :size 2}
+                             {:name "1-knee" :size 2}
+                             {:name "2-knee" :size 2}
+                             {:name "3-knee" :size 2}
+                             {:name "4-knee" :size 2}
+                             {:name "1-thigh" :size 4}
+                             {:name "2-thigh" :size 4}
+                             {:name "3-thigh" :size 4}
+                             {:name "4-thigh" :size 4}
+                             {:name "1-leg" :size 3}
+                             {:name "2-leg" :size 3}
+                             {:name "3-leg" :size 3}
+                             {:name "4-leg" :size 3}
+                             {:name "1-achilles" :size 3}
+                             {:name "2-achilles" :size 3}
+                             {:name "3-achilles" :size 3}
+                             {:name "4-achilles" :size 3}
+                             {:name "1-foot" :size 2}
+                             {:name "2-foot" :size 2}
+                             {:name "3-foot" :size 2}
+                             {:name "4-foot" :size 2})]
+      (is-no-diff expected (sut/-handler {:exercise-number 6 :arguments arguments})))))

@@ -52,12 +52,25 @@
                  (set (map
                    (partial -replace-in-name part #"^middle-")
                    '("right-upper-" "right-lower-" "left-lower-" "left-upper-")))))))))
-                   ;; #{"top-" "right-upper-" "right-lower-" "left-lower-"})))))))
 
 (defn exercise-6
-  "6. Description for the exercise"
-  []
-  {:result "foo"})
+  "6. Create a function that generalizes `symmetrize-body-parts`
+  and the function you created in Exercise 5.
+  The new function should take a collection of body parts
+  and the number of matching body parts to add."
+  [number-of-body-parts asym-body-parts]
+  (loop [remaining-asym-parts asym-body-parts
+         final-body-parts #{}]
+    (if (empty? remaining-asym-parts)
+      final-body-parts
+      (let [[part & remaining] remaining-asym-parts]
+        (recur remaining
+               (clojure.set/union
+                 final-body-parts
+                 #{part}
+                 (set (map
+                   #(-replace-in-name part #"^1-" (str % "-"))
+                   (range 2 (+ number-of-body-parts 2))))))))))
 
 (defn -handler
   "AWS Lambda entry point.
